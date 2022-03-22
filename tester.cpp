@@ -105,7 +105,7 @@ void doTest(int numOps, int seed) {
             stream << "addLast(" << x << ")";
             operation = stream.str();
             gtList.push_back(x);
-            myList.addFirst(x);
+            myList.addLast(x);
         }
         else if (op < 85 && gtList.size() > 0) {
             operation = "removeFirst()";
@@ -130,7 +130,7 @@ void doTest(int numOps, int seed) {
         
         if (gtList.size() != myList.size()) {
             cout << "lists do not have the same reported size after a " << operation << "\n";
-            cout << "Ground truth size " << gtList.size() <<  ", my size " + myList.size() << "\n";
+            cout << "Ground truth size " << gtList.size() <<  ", my size " << myList.size() << "\n";
             cout << "Ground truth list\n-------------------------------\n";
             printList(gtList);
             cout << "\n\nMy list\n-------------------------------\n";
@@ -140,6 +140,10 @@ void doTest(int numOps, int seed) {
 
         if (!listsEqual(gtList, myList)) {
             cout << "lists not equal after a " + operation << "\n";
+            cout << "Ground truth list\n-------------------------------\n";
+            printList(gtList);
+            cout << "\n\nMy list\n-------------------------------\n";
+            myList.print();
             return;
         }
     }
