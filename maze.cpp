@@ -71,7 +71,7 @@ void Maze::traverse(long milliseconds, bool bfs) {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j< cols; j++) {
             print();
-            maze[i][j] = 'X';
+            maze[i][j] = '.';
             this_thread::sleep_for(chrono::milliseconds(milliseconds));
         }
     }
