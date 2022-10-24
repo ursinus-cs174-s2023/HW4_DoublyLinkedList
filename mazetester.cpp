@@ -5,5 +5,5 @@ using namespace std;
 
 int main(int argc, char** argv) {
     Maze maze(argv[1]);
-    maze.traverse(500);
+    maze.traverse(500, true);
 }

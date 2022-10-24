@@ -25,7 +25,7 @@ class Maze {
          * @param milliseconds Number of milliseconds to pause in between each frame
          * @param bfs If true, do a breadth-first search.  If false, do a depth-first search
          */
-        void traverse(long milliseconds);
+        void traverse(long milliseconds, bool bfs);
 
         ~Maze();
 };
