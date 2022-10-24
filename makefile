@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS=-std=c++11 -g -Wall 
 
-all: driver tester
+all: driver tester mazetester
 
 linkedlist.o: linkedlist.cpp linkedlist.h
 	$(CC) $(CFLAGS) -c linkedlist.cpp
@@ -12,5 +12,11 @@ driver: linkedlist.o driver.cpp
 tester: linkedlist.o tester.cpp
 	$(CC) $(CFLAGS) -o tester tester.cpp linkedlist.o
 
+maze.o: maze.h maze.cpp
+	$(CC) $(CFLAGS) -c maze.cpp
+
+mazetester: mazetester.cpp maze.o linkedlist.o
+	$(CC) $(CFLAGS) -o mazetester mazetester.cpp maze.o linkedlist.o
+
 clean:
-	rm *.o driver palindrome
+	rm *.o driver tester mazetester
