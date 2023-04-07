@@ -96,6 +96,7 @@ void doTest(int numOps, int seed) {
             stringstream stream;
             stream << "addFirst(" << x << ")";
             operation = stream.str();
+            cout << operation << "\n";
             gtList.push_front(x);
             myList.addFirst(x);
         }
@@ -104,16 +105,19 @@ void doTest(int numOps, int seed) {
             stringstream stream;
             stream << "addLast(" << x << ")";
             operation = stream.str();
+            cout << operation << "\n";
             gtList.push_back(x);
             myList.addLast(x);
         }
         else if (op < 85 && gtList.size() > 0) {
             operation = "removeFirst()";
+            cout << operation << "\n";
             gtList.pop_front();
             myList.removeFirst();
         }
         else if (op < 95 && gtList.size() > 0) {
             operation = "removeLast()";
+            cout << operation << "\n";
             gtList.pop_back();
             myList.removeLast();
         }
@@ -122,11 +126,10 @@ void doTest(int numOps, int seed) {
             stringstream stream;
             stream << "remove(" << item << ")";
             operation = stream.str();
+            cout << operation << "\n";
             removeListItem(gtList, item);
             myList.remove(item);
         }
-        
-        cout << operation << "\n";
         
         if (gtList.size() != myList.size()) {
             cout << "lists do not have the same reported size after a " << operation << "\n";
